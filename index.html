@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!--
+Template Name: Besloor
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Copyright: OS-Templates.com
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>MUSEO</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+
+<script>
+// Mostrar botón solo al hacer scroll hacia abajo
+window.onscroll = function () {
+  const btn = document.getElementById("btnScrollTop");
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+
+// Función para subir suavemente
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+ // Reproducir/Pausar video según visibilidad
+  document.addEventListener("DOMContentLoaded", function () {
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    let player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('culturalVideo');
+    }
+
+    const videoElement = document.getElementById('culturalVideo');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && player && typeof player.playVideo === 'function') {
+            player.playVideo();
+          } else if (player && typeof player.pauseVideo === 'function') {
+            player.pauseVideo();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(videoElement);
+    window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+  });
+</script>
+
+ <style>
+a.btn,
+a.btn:hover,
+button.btn,
+button.btn:hover,
+input[type="submit"],
+input[type="submit"]:hover {
+  background-color: #ff0000 !important;
+  color: #ffffff !important;
+  border-color: #ff0000 !important;
+}
+
+figcaption em {
+  background-color: #ff000098;
+  color: #080808;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-style: normal;
+  display: inline-block;
+  font-weight: bold;
+}
+
+#mobile-menu {
+  display: none;
+  text-align: center;
+  margin: 20px auto;
+}
+
+#mobile-menu select {
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  width: 90%;
+  max-width: 300px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20,50 70,100 120,50' stroke='%23999' stroke-width='15' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 978px) {
+  #mobile-menu {
+    display: block;
+  }
+
+  #mainav ul {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  ul.figures.latest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  ul.figures.latest > li {
+    width: 90% !important;
+    max-width: 400px;
+    margin: 10px auto;
+    float: none;
+    text-align: center;
+  }
+
+  ul.figures.latest img {
+    width: 100%;
+    height: auto;
+  }
+
+  ul.figures.latest figcaption {
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  #testimonials ul.group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #testimonials ul.group > li {
+    width: 90% !important;
+    max-width: 400px;
+    float: none;
+    margin-bottom: 20px;
+  }
+
+  ul.figures.latest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  ul.figures.latest > li {
+    width: 90% !important;
+    max-width: 400px;
+    float: none;
+    margin-bottom: 20px;
+  }
+
+  ul.figures.latest figure {
+    text-align: center;
+  }
+
+  ul.figures.latest figure img {
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  ul.figures.latest figcaption {
+    text-align: center;
+  }
+}
+
+.testimonio-figura {
+  text-align: center;
+}
+
+.testimonio-figura img.circle {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.testimonio-figura figcaption {
+  text-align: center;
+  margin-top: 10px;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+</style> 
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/01.jpg');"> 
+  <!-- ################################################################################################ -->
+  <div class="wrapper row0">
+    <div id="topbar" class="hoc clear"> 
+      <!-- ################################################################################################ -->
+      <div class="fl_left"> 
+        <!-- ################################################################################################ -->
+        <ul class="nospace">
+          <li><i class="fas fa-phone"></i> +57 301 684 2848</li>
+          <li class="lowercase"><i class="far fa-envelope"></i> ee_12367000038301@hotmail.com</li>
+       
+        </ul>
+        <!-- ################################################################################################ -->
+      </div>
+      <div class="fl_right"> 
+        <!-- ################################################################################################ -->
+       
+        <!-- ################################################################################################ -->
+      </div>
+      <!-- ################################################################################################ -->
+    </div>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear"> 
+      <!-- ################################################################################################ -->
+<div id="logo">
+  <a href="index.html">
+    <img src="images/demo/nombre1.png" alt="Logo" style="height: 30px;">
+  </a>
+</div>
+
+
+
+        <nav id="mainav" class="fl_right">
+        <ul class="clear">
+        
+          <li><a href="contenido1.html">Identidad y Artesania</a></li>
+          <li><a href="contenido2.html">Naturaleza y Armonia</a></li>
+          <li><a href="contenido3.html">Memoria Histórica</a></li>
+          <li><a href="contenido4.html">Pensamineto Matemático</a></li>
+        </ul>
+
+
+  <form action="#" method="post" id="mobile-menu">
+  <select onchange="window.location.href=this.value;">
+    <option value="#">Navegación...</option>
+    <option value="contenido1.html">Identidad y Artesania</option>
+    <option value="contenido2.html">Naturaleza y Armonia</option>
+    <option value="contenido3.html">Memoria Histórica</option>
+    <option value="contenido4.html">Pensamineto Matemático</option>
+  </select>
+  </form>
+
+      </nav>
+      <!-- ################################################################################################ -->
+    </header>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+ <!-- ################################################################################################ -->
+<div id="pageintro" class="hoc clear" style="text-align: center;"> 
+  <!-- ################################################################################################ -->
+  <article class="center">
+    <div style="display: inline-block;">
+      <a href="index.html">
+        <img src="images/demo/logo.png"  style="height: 250px;">
+      </a>
+    </div>
+  </article>
+  <!-- ################################################################################################ -->
+</div>
+
+  <!-- ################################################################################################ -->
+</div>
+<!-- End Top Background Image Wrapper -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<div style="max-width: 1200px; margin: 50px auto; padding: 20px; text-align: justify; background-color: #ffffff00; border-radius: 10px; box-shadow: 0 0 10px rgb(255, 255, 255);">
+  <h1 style="text-align: center; margin-bottom: 20px;">Museo Cultural Aliancista Zenú "MUCUALZE"</h1>
+  <p>El Museo Cultural Aliancista Zenú, conocido como "MUCUALZE", fue creado por un grupo de docentes de la Institución Educativa Alianza, en San Andrés de Sotavento (Córdoba), con el objetivo de preservar y difundir la cultura, historia y tradiciones del pueblo indígena Zenú. Este proyecto, al que se sumó la comunidad educativa, logró reunir y exhibir piezas donadas por padres de familia, estudiantes, maestros y otros interesados en la cultura Zenú.</p>
+
+  <p>Ubicado en la sede principal de la institución, el museo alberga una valiosa colección de cerámicas, orfebrería, tejidos, utensilios y otros objetos que representan la vida, espiritualidad y cosmovisión del pueblo Zenú. "MUCUALZE" no solo es un patrimonio cultural, sino también una herramienta educativa para fortalecer la identidad cultural y el aprendizaje en la comunidad.</p>
+
+  <p>El museo está abierto a estudiantes, docentes, visitantes e investigadores, invitando a todos a conocer y valorar la riqueza cultural del pueblo Zenú.</p>
+</div>
+
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="center btmspace-80">
+      <h6 class="heading underline font-x2">EJES TEMÁTICOS</h6>
+    </div>
+    <ul class="nospace group overview btmspace-80">
+      <li class="one_quarter">
+        <article><a href="#"><i class="fas fa-paint-brush"></i></a>
+          <h6 class="heading"><a href="contenido1.html">IDENTIDAD Y ARTESANÍA</a></h6>
+          <p>Nos contamos historias para no olvidar.
+             Lo que aprendemos de nuestras abuelas, 
+             los mitos que nos explican el mundo y 
+             las leyendas que escuchamos desde 
+             pequeños nos conectan con lo que somos&hellip;</p>
+          <footer><a href="contenido1.html">Ver detalles&raquo;</a></footer>
+        </article>
+      </li>
+      <li class="one_quarter">
+        <article><a href="#"><i class="fas fa-users"></i></a>
+          <h6 class="heading"><a href="contenido2.html">MEDICINA TRADICIONAL Y NATURALEZA </a></h6>
+          <p>Desde pequeños hemos aprendido que en las
+             plantas tambien vive el saber. Conocemos 
+             hojas que curan, raices que alivian y 
+             flores que se usan para hacer baños o 
+             infusiones&hellip;</p>
+          <footer><a href="contenido2.html">Ver detalles&raquo;</a></footer>
+        </article>
+      </li>
+      
+      <li class="one_quarter">
+        <article><a href="#"><i class="fas fa-book""></i></a>
+          <h6 class="heading"><a href="contenido4.html">PENSAMIENTO MATEMATICO</a></h6>
+          <p>En nuestro dia a dia usamos las matematicas
+             más de lo que creemos. Cuando tejemos con 
+             cada flecha, calculamos medidas, repetimos 
+             figuras y seguimos patrones. Al sembrar, 
+             distribuimos la tierra de forma justa&hellip;</p>
+          <footer><a href="contenido4.html">Ver detalles&raquo;</a></footer>
+        </article>
+      </li>
+      <li class="one_quarter">
+        <article><a href="#"><i class="fas fa-university"></i></a>
+          <h6 class="heading"><a href="contenido3.html">ORGANIZACIÓN SOCIAL, TERRITORIO Y MEMORÍA HISTÓRICA</a></h6>
+          <p>Este eje nos muestra cómo nos organizábamos 
+            los Zenúes en el pasado y como aún hoy muchos 
+            de esos saberes del pasado siguen vivos&hellip;</p>
+          <footer><a href="contenido3.html">Ver detalles&raquo;</a></footer>
+        </article>
+      </li>
+    </ul>
+   
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="bgded overlay startlt light" style="background-image:url('images/demo/backgrounds/74.jpg');">
+  <section id="segment" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <div class="two_third">
+      <h6 class="heading underline font-x2">Datos Curiosos</h6>
+      <p class="btmspace-50">- Aunque muchas de nuestras historias no están escritas, 
+        viven en nuestras voces y manos. Al repetirlas y compartirlas, las hacemos eternas.</p>
+      
+      <p class="btmspace-50">- Muchas de las plantas que usamos tienen propiedades cientificas
+        comprobadas. ¡Lo que nuestros mayores sabían desde hace siglos, hoy lo estudian los 
+        laboratorios!.</p>
+        
+      <p class="btmspace-50">- Para nosotros, los Zenúes, cada pedazo de tierra guarda una 
+        historia, un consejo o una enseñanza... ¡Por eso dicen que la tierra también habla, también camina, como el caimán!.</p>
+        
+       <p class="btmspace-50">- Los tejidos Zenúes usan patrones tan precisos que algunos siguen la proporcion  
+        áurea.¡una regla matematica que tambien usaron los antiguos egipcios y griegos!.</p> 
+
+    </div>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2">
+  <section class="hoc container clear"> 
+    <!-- ################################################################################################ -->
+    <div class="center btmspace-80">
+      <h6 class="heading underline font-x2">Visitas</h6>
+    </div>
+    <ul class="nospace group figures latest btmspace-80">
+      <li class="one_third first">
+        <figure><img src="images/demo/backgrounds/09.jpeg" alt="">
+          <figcaption><a href="#">San Andres de Sotavento</a>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="one_third">
+        <figure><img src="images/demo/backgrounds/10.jpeg" alt="">
+          <figcaption><a href="#">San Andres de Sotavento</a>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="one_third">
+        <figure><img src="images/demo/backgrounds/02.jpeg" alt="">
+          <figcaption><a href="#">San Andres de Sotavento</a>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+   <div class="center btmspace-80">
+  <h6 class="heading underline font-x2"></h6>
+  <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
+    <iframe 
+      id="culturalVideo"
+      src="https://www.youtube.com/embed/_7ixI0B_cMo?enablejsapi=1&mute=1"
+      title="Video Cultural"
+      style="position:absolute;top:0;left:0;width:100%;height:100%;"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+
+
+
+
+
+
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/4.jpeg');">
+  <section id="testimonials" class="hoc container clear"> 
+    <div class="center btmspace-80">
+      <h6 class="heading underline font-x2">ORGULLO ZENÚ</h6>
+    </div>
+
+    <ul class="nospace group btmspace-80" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px;">
+      <li class="one_third" style="max-width: 300px;">
+        <blockquote>Álvaro Madera Paternina es un historiador y educador Zenú de San Andrés de Sotavento. Ha escrito libros sobre la cultura y valores de su pueblo y fundó uno de sus primeros colegios privados. Es miembro de la Academia de Historia de Córdoba.</blockquote>
+        <figure class="testimonio-figura">
+          <img class="circle" src="images/demo/alvaro.jpeg" alt="">
+          <figcaption>
+            <h6 class="heading">Álvaro Madera</h6>
+            <em>San Andrés de Sotavento</em>
+          </figcaption>
+        </figure>
+      </li>
+      <li class="one_third" style="max-width: 300px;">
+        <blockquote>José Dolores Paternina Cruz (nacido el 26 marzo 1925) ha dedicado su vida a rescatar y difundir la cultura Zenú a través de su museo, sus escritos y su liderazgo comunitario. Hasta hace apenas unos años, continuaba compartiendo conocimiento con visitantes, estudiantes e investigadores</blockquote><br>
+        <figure class="testimonio-figura">
+          <img class="circle" src="images/demo/jose.jpeg" alt="">
+          <figcaption>
+            <h6 class="heading">José Dolores</h6>
+            <em>San Andrés de Sotavento</em>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+  </section>
+</div>
+
+
+<button onclick="scrollToTop()" id="btnScrollTop" title="Subir">
+  ↑
+</button>
+<!-- JAVASCRIPTS -->
+<script src="layout/scripts/jquery.min.js"></script>
+<script src="layout/scripts/jquery.backtotop.js"></script>
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
+</body>
+</html>

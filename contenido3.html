@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <title>MUSEO</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+<script>
+// Mostrar botón solo al hacer scroll hacia abajo
+window.onscroll = function () {
+  const btn = document.getElementById("btnScrollTop");
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+
+// Función para subir suavemente
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+</script>
+
+  <style>
+    body {
+      text-align: center;
+    }
+
+    .model-container {
+      margin-top: 20px;
+    }
+
+    .model-block {
+      display: flex; /* Usamos flex para alinear el modelo y la descripción */
+      align-items: center; /* Centra verticalmente */
+      border: 1px solid #ccc; /* Borde alrededor de cada bloque */
+      border-radius: 10px; /* Esquinas redondeadas */
+      padding: 20px; /* Espaciado interno */
+      margin-bottom: 20px; /* Espaciado entre bloques */
+      background-color: #bbb4b4; /* Color de fondo */
+    }
+
+    model-viewer {
+      width: 100%;
+      max-width: 370px; /* Aumenta el tamaño máximo del modelo */
+      height: 370px; /* Aumenta la altura del modelo */
+    }
+
+    h1 {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      margin: 10px 0; /* Margen superior e inferior para títulos */
+    }
+
+    p {
+      font-size: 11px; /* Aumenta el tamaño de fuente para la descripción */
+      color: #474747; /* Color de texto de la descripción */
+      margin-left: 1px; /* Margen a la izquierda para separar del modelo */
+      max-width: 300px; /* Limitar el ancho de la descripción para mayor legibilidad */
+      text-align: left; /* Alinear el texto a la izquierda */
+    }
+
+#mobile-menu {
+  display: none;
+  text-align: center;
+  margin: 20px auto;
+}
+
+#mobile-menu select {
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  width: 90%;
+  max-width: 300px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20,50 70,100 120,50' stroke='%23999' stroke-width='15' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  display: block;
+  margin: 0 auto; /* Centrado */
+}
+
+/* Mostrar solo en pantallas pequeñas */
+@media (max-width: 978px) {
+  #mobile-menu {
+    display: block;
+  }
+
+  #mainav ul {
+    display: none !important; /* Oculta el menú grande */
+  }
+}
+
+#btnScrollTop {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  background-color: rgba(255, 0, 0, 0.7); /* rojo semitransparente */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  width: 50px;
+  height: 50px;
+}
+
+#btnScrollTop:hover {
+  background-color: rgba(255, 0, 0, 0.9); /* Más opaco al pasar el mouse */
+} body {
+      text-align: center;
+    }
+
+ .model-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.model-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 900px;
+  margin: 20px auto;
+  gap: 20px;
+  background-color: #dddada; /* gris claro */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+
+.carousel-block {
+  flex: 1;
+  max-width: 370px;
+}
+
+.text-block {
+  flex: 1;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Versión para celulares */
+@media (max-width: 768px) {
+  .model-block {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-block {
+    text-align: center;
+  }
+}
+
+
+
+
+
+    model-viewer {
+      width: 100%;
+      max-width: 370px; /* Aumenta el tamaño máximo del modelo */
+      height: 370px; /* Aumenta la altura del modelo */
+    }
+
+    h1 {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      margin: 10px 0; /* Margen superior e inferior para títulos */
+    }
+
+    p {
+      font-size: 11px; /* Aumenta el tamaño de fuente para la descripción */
+      color: #474747; /* Color de texto de la descripción */
+      margin-left: 1px; /* Margen a la izquierda para separar del modelo */
+      max-width: 300px; /* Limitar el ancho de la descripción para mayor legibilidad */
+      text-align: left; /* Alinear el texto a la izquierda */
+    }
+
+#mobile-menu {
+  display: none;
+  text-align: center;
+  margin: 20px auto;
+}
+
+#mobile-menu select {
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  width: 90%;
+  max-width: 300px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20,50 70,100 120,50' stroke='%23999' stroke-width='15' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  display: block;
+  margin: 0 auto; /* Centrado */
+}
+
+/* Mostrar solo en pantallas pequeñas */
+@media (max-width: 978px) {
+  #mobile-menu {
+    display: block;
+  }
+
+  #mainav ul {
+    display: none !important; /* Oculta el menú grande */
+  }
+}
+
+#btnScrollTop {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  background-color: rgba(255, 0, 0, 0.7); /* rojo semitransparente */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  width: 50px;
+  height: 50px;
+}
+
+#btnScrollTop:hover {
+  background-color: rgba(255, 0, 0, 0.9); /* Más opaco al pasar el mouse */
+}
+    
+    
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body id="top">
+
+  <div class="bgded overlay" style="background-image:url('images/demo/backgrounds/7.jpeg');">
+
+
+    <div id="pageintro" style="
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px 0 20px 0; /* padding: top right bottom left */
+  margin: 0;
+  width: 100%;
+  height: auto;
+">
+  <div style="margin: 0 auto;">
+    <a href="index.html">
+      <img src="images/demo/logo.png" alt="Logo" style="height: 100px; display: block; margin: 0 auto;">
+    </a>
+  </div>
+</div>
+
+    <div class="wrapper row1">
+      <header id="header" class="hoc clear">
+       
+<div id="logo">
+  <a href="index.html">
+    <img src="images/demo/nombre1.png" alt="Logo" style="height: 30px;">
+  </a>
+</div>
+
+        <nav id="mainav" class="fl_right">
+        <ul class="clear">
+         
+          <li><a href="contenido1.html">Identidad y Artesania</a></li>
+          <li><a href="contenido2.html">Naturaleza y Armonia</a></li>
+          <li><a href="contenido3.html">Memoria Histórica</a></li>
+          <li><a href="contenido4.html">Pensamineto Matemático</a></li>
+        </ul>
+
+
+     <form action="#" method="post" id="mobile-menu">
+  <select onchange="window.location.href=this.value;">
+    <option value="#">Navegación...</option>
+    <option value="contenido1.html">Identidad y Artesania</option>
+    <option value="contenido2.html">Naturaleza y Armonia</option>
+    <option value="contenido3.html">Memoria Histórica</option>
+    <option value="contenido4.html">Pensamineto Matemático</option>
+  </select>
+  </form>
+
+      </nav>
+      </header>
+    </div>
+
+    <div id="pageintro" class="hoc clear">
+      <article class="center">
+        <h3 class="heading underline">TERRITORIO Y MEMORIA HISTÓRICA</h3><br>
+        <h8>Este eje nos muestra cómo nos organizábamos 
+            los Zenúes en el pasado y como aún hoy muchos 
+            de esos saberes del pasado siguen vivos. Nos ayuda a entender cómo funciona nuestro gobierno propio, como el territorio sigue siendo un 
+          lugar sagrado. Tambien es una forma de escuchar la voz de nuestrso abuelos y abuelas, recordar sus luchas, y valorar todo lo que han hecho para que hoy sigamos existiendo como pueblo.</h8>
+    
+      </article>
+    </div>
+  </div>
+
+  <div class="wrapper row2">
+    <article class="hoc container clear">
+      <div class="center btmspace-80">
+         <img src="images/demo/pintasn.png" alt="Logo" style="height: 80px;">
+      </div>
+
+      <center>
+      <!-- Título centrado -->
+      <h1>ANTIGÜEDADES</h1>
+
+
+       <!-- barra buscar -->
+<div style="display: flex; justify-content: center; margin: 20px;">
+  <input type="text" id="searchInput" placeholder="Buscar modelo..." 
+         style="padding: 10px 15px; width: 80%; max-width: 400px; border-radius: 10px;
+                border: 1px solid #cc0000; background-color: rgba(255, 0, 0, 0.2);">
+</div>
+
+
+</center>
+
+
+
+
+      <!-- Contenedor de los modelos 3D y sus descripciones -->
+      <div class="model-container">
+        <!-- Modelo 1 -->
+       <div class="model-block" data-nombre="tinaja prehispanica">
+  <div id="carouselModelo1" class="carousel slide" data-bs-ride="carousel" style="max-width:370px; margin-right: 20px;">
+    <div class="carousel-inner rounded">
+      <div class="carousel-item active">
+        <img src="images/demo/gallery/memoria/01.JPG" class="d-block w-100" alt="Imagen 1">
+      </div>
+      <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/02.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+       <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/03.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+       <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/04.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+       <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/05.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+       <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/06.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+       <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/07.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+       <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/08.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselModelo1" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselModelo1" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <div>
+    <h2>Tinaja Prehispánica</h2>
+    <p>Con más de 1.500 años de antigüedad, esta tinaja fue elaborada por los antiguos zenúes para transportar o guardar agua. Está hecha de barro modelado a mano y cocido al fuego, con paredes gruesas que ayudaban a mantener el líquido fresco.</p>
+  </div>
+</div>
+
+
+        <!-- Modelo 2 -->
+       <div class="model-block" data-nombre="Figura precolombina">
+  <div id="carouselModelo2" class="carousel slide" data-bs-ride="carousel" style="max-width:370px; margin-right: 20px;">
+    <div class="carousel-inner rounded">
+      <div class="carousel-item active">
+        <img src="images/demo/gallery/memoria/09.JPG" class="d-block w-100" alt="Imagen 1">
+      </div>
+      <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/10.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+      <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/11.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+      <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/12.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+      <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/13.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+      <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/14.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+      <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/15.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+      <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/16.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+      <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/17.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+      <div class="carousel-item">
+        <img src="images/demo/gallery/memoria/18.JPG" class="d-block w-100" alt="Imagen 2">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselModelo2" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselModelo2" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  <div>
+    <h2>Figura precolombina</h2>
+    <p>Esta escultura representa a un hombre en estrecha relación con un caimán, símbolo importante en la cosmovisión Zenú. Refleja la conexión espiritual y cultural que el pueblo Zenú mantenía con la naturaleza, especialmente con los animales del río, considerados protectores, guías o ancestros. Este tipo de figura también revela aspectos de los mitos, rituales y el respeto profundo por el entorno natural que caracterizaba a esta civilización.</p>
+  </div>
+</div>
+
+       
+      
+
+      </div>
+    </article>
+  </div>
+
+
+<button onclick="scrollToTop()" id="btnScrollTop" title="Subir">
+  ↑
+</button>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById('searchInput');
+    const modelos = document.querySelectorAll('.model-block');
+
+    input.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        const filtro = input.value.toLowerCase().trim();
+        let encontrado = false;
+
+        modelos.forEach(modelo => {
+          const nombre = modelo.getAttribute('data-nombre').toLowerCase();
+          if (nombre === filtro) {  // ← cambio aquí
+            modelo.style.display = 'flex';
+            encontrado = true;
+          } else {
+            modelo.style.display = 'none';
+          }
+        });
+
+        if (!encontrado && filtro !== "") {
+          alert("Modelo no encontrado");
+        }
+
+        if (filtro === "") {
+          modelos.forEach(modelo => modelo.style.display = 'flex');
+        }
+
+        event.preventDefault();
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>
